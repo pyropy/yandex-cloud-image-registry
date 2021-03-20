@@ -7,12 +7,13 @@
   "author": "Srdjan S <stankovic.srdjo@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "package": "tsc",
+    "package": "tsc src/index.ts --outDir ./dist",
     "lint": "tslint src/index.ts",
     "test": "jest"
   },
   "dependencies": {
-    "@docker/sdk": "^1.0.3"
+    "@actions/core": "^1.2.6",
+    "dockerode": "^3.2.1"
   },
   "devDependencies": {
     "@types/jest": "^26.0.21",
