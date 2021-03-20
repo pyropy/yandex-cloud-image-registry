@@ -1,0 +1,15 @@
+name: 'Yandex Image Registry Action'
+description: 'Build and publish Docker images to Yandex Cloud Image Registry'
+author: 'Srdjan Stankovic'
+branding:
+  color: 'blue'
+  icon: 'upload-cloud'
+inputs:
+  context:
+    description: 'Source directory of Dockerfile'
+    default: '.'
+    required: false
+
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

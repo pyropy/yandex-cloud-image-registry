@@ -1,0 +1,26 @@
+{
+  "name": "yandex-cloud-image-registry",
+  "version": "1.0.0",
+  "description": "Build and publish Docker images to Yandex Cloud Image Registry ☁️🐳🪆",
+  "main": "index.js",
+  "repository": "git@github.com:pyropy/yandex-cloud-image-registry.git",
+  "author": "Srdjan S <stankovic.srdjo@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "package": "tsc",
+    "lint": "tslint src/index.ts",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@docker/sdk": "^1.0.3"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.21",
+    "@types/node": "^14.14.35",
+    "jest": "^26.6.3",
+    "ts-jest": "^26.5.4",
+    "ts-node": "^9.1.1",
+    "tslint": "^6.1.3",
+    "typescript": "^4.2.3"
+  }
+}
