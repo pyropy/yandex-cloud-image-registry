@@ -5,6 +5,7 @@ var core = require("@actions/core");
 var main = function () {
     var inputs = {
         serviceKeyJson: core.getInput("YANDEX_SERVICE_KEY_JSON", { required: true }),
+        imgRegistryID: core.getInput("YANDEX_IMG_REGISTRY_ID", { required: true }),
         dockerContext: core.getInput("DOCKER_CONTEXT", { required: false }),
         dockerImageName: core.getInput("DOCKER_IMG_NAME", { required: true }),
         dockerImageTag: core.getInput("DOCKER_IMG_TAG", { required: false })

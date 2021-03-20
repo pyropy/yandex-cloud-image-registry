@@ -2,8 +2,8 @@
 exports.__esModule = true;
 exports.createImageTag = exports.push = exports.build = exports.login = void 0;
 var child_process_1 = require("child_process");
-var createImageTag = function (name, tag) {
-    return "cr.yandex/" + name + "/" + tag;
+var createImageTag = function (imgRegistryID, name, tag) {
+    return "cr.yandex/" + imgRegistryID + "/" + name + "/" + tag;
 };
 exports.createImageTag = createImageTag;
 var login = function (key) {
