@@ -18,14 +18,14 @@ type ActionInputs = {
 const main = () => {
 
   const inputs: ActionInputs = {
-    serviceKeyJson: core.getInput("YANDEX_SERVICE_KEY_JSON", {required: true}),
-    imgRegistryID: core.getInput("YANDEX_IMG_REGISTRY_ID", {required: true}),
+    serviceKeyJson: core.getInput("YC_SERVICE_ACCOUNT_KEY_FILE", {required: true}),
+    imgRegistryID: core.getInput("YC_IMG_REGISTRY_ID", {required: true}),
     dockerContext: core.getInput("DOCKER_CONTEXT", { required: false }),
     dockerImageName: core.getInput("DOCKER_IMG_NAME", { required: true }),
     dockerImageTag: core.getInput("DOCKER_IMG_TAG", { required: false }),
   };
 
-  const imageTag = createImageTag(inputs.dockerImageName, inputs.dockerImageTag)
+  const imageTag = createImageTag(inputs.imgRegistryID, inputs.dockerImageName, inputs.dockerImageTag)
 
   dockerLogin(inputs.serviceKeyJson);
   dockerBuild(inputs.dockerContext, imageTag)
