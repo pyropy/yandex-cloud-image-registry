@@ -1,7 +1,7 @@
 import { exec, spawnSync } from "child_process";
 
 const createImageTag = (imgRegistryID: string, name: string, tag: string): string => {
-  return `cr.yandex/${imgRegistryID}/${name}/${tag}`
+  return `cr.yandex/${imgRegistryID}/${name}:${tag}`
 }
 
 const login = (key: string) => {
