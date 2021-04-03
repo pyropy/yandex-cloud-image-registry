@@ -1645,7 +1645,7 @@ var login = function (key) { return __awaiter(void 0, void 0, void 0, function (
         switch (_a.label) {
             case 0:
                 keyBuffer = Buffer.from(key);
-                return [4 /*yield*/, exec_1.exec("docker", ["login", "--username", "json_key", "--password-stdin", "cr.yandex"], { input: keyBuffer })];
+                return [4 /*yield*/, exec_1.exec("docker", ["login", "--username", "json_key", "--password-stdin", "cr.yandex"], { input: keyBuffer }).catch(function () { return console.error("Failed logging in to Container Registry"); })];
             case 1:
                 _a.sent();
                 return [2 /*return*/];
@@ -1655,7 +1655,9 @@ var login = function (key) { return __awaiter(void 0, void 0, void 0, function (
 var build = function (ctx, tag) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, exec_1.exec("docker build -t " + tag + " " + ctx)];
+            case 0: return [4 /*yield*/, exec_1.exec("docker build -t " + tag + " " + ctx).catch(function (error) {
+                    return console.error(error);
+                })];
             case 1:
                 _a.sent();
                 return [2 /*return*/];
@@ -1665,7 +1667,7 @@ var build = function (ctx, tag) { return __awaiter(void 0, void 0, void 0, funct
 var push = function (tag) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, exec_1.exec("docker push " + tag)];
+            case 0: return [4 /*yield*/, exec_1.exec("docker push " + tag).catch(function (error) { return console.error(error); })];
             case 1:
                 _a.sent();
                 return [2 /*return*/];

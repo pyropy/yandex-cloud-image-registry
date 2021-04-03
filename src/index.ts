@@ -23,15 +23,17 @@ const login = async (key: string) => {
     "docker",
     ["login", "--username", "json_key", "--password-stdin", "cr.yandex"],
     { input: keyBuffer }
-  );
+  ).catch(() => console.error("Failed logging in to Container Registry"));
 };
 
 const build = async (ctx: string, tag: string) => {
-  await exec(`docker build -t ${tag} ${ctx}`);
+  await exec(`docker build -t ${tag} ${ctx}`).catch((error) =>
+    console.error(error)
+  );
 };
 
 const push = async (tag: string) => {
-  await exec(`docker push ${tag}`);
+  await exec(`docker push ${tag}`).catch((error) => console.error(error));
 };
 
 const main = async () => {
@@ -50,7 +52,6 @@ const main = async () => {
     inputs.dockerImageName,
     inputs.dockerImageTag
   );
-
   await login(inputs.serviceKeyJson);
   await build(inputs.dockerContext, imageTag);
   await push(imageTag);
