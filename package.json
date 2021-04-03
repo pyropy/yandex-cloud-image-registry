@@ -7,7 +7,7 @@
   "author": "Srdjan S <stankovic.srdjo@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "package": "ncc build src/index.ts -o dist --license LICENSE",
+    "package": "ncc build src/index.ts -o dist --source-map --license LICENSE",
     "lint": "tslint src/index.ts",
     "test": "jest"
   },
