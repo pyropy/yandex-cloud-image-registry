@@ -13,8 +13,7 @@
   },
   "dependencies": {
     "@actions/core": "^1.2.6",
-    "@actions/exec": "^1.0.4",
-    "dockerode": "^3.2.1"
+    "@actions/exec": "^1.0.4"
   },
   "devDependencies": {
     "@types/jest": "^26.0.21",
