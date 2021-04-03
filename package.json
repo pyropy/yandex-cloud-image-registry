@@ -8,11 +8,12 @@
   "license": "MIT",
   "scripts": {
     "package": "ncc build src/index.ts -o dist --source-map --license LICENSE",
-    "lint": "tslint src/index.ts",
+    "lint": "tslint src/*.ts",
     "test": "jest"
   },
   "dependencies": {
     "@actions/core": "^1.2.6",
+    "@actions/exec": "^1.0.4",
     "dockerode": "^3.2.1"
   },
   "devDependencies": {
