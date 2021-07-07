@@ -1,0 +1,22 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "11:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: "@types/node"
+    versions:
+    - 14.14.39
+    - 14.14.41
+    - 15.0.0
+  - dependency-name: "@vercel/ncc"
+    versions:
+    - 0.28.0
+    - 0.28.1
+    - 0.28.2
+  - dependency-name: "@types/jest"
+    versions:
+    - 26.0.22
