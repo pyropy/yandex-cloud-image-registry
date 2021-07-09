@@ -27,17 +27,17 @@ const login = async (key: string) => {
 };
 
 const build = async (ctx: string, tag: string) => {
-  await exec(`docker build -t ${tag} ${ctx}`).catch((error) =>
+  await exec(`docker build -t ${tag} ${ctx}`).catch((error: Error) =>
     console.error(error)
   );
 };
 
 const push = async (tag: string) => {
-  await exec(`docker push ${tag}`).catch((error) => console.error(error));
+  await exec(`docker push ${tag}`).catch((error: Error) => console.error(error));
 };
 
-const main = async () => {
-  const inputs: ActionInputs = {
+const getActionInputs = (): ActionInputs => {
+  return {
     serviceKeyJson: core.getInput("YC_SERVICE_ACCOUNT_KEY_FILE", {
       required: true,
     }),
@@ -46,7 +46,10 @@ const main = async () => {
     dockerImageName: core.getInput("DOCKER_IMG_NAME", { required: true }),
     dockerImageTag: core.getInput("DOCKER_IMG_TAG", { required: false }),
   };
+};
 
+const main = async () => {
+  const inputs = getActionInputs();
   const imageTag = createImageTag(
     inputs.imgRegistryID,
     inputs.dockerImageName,
